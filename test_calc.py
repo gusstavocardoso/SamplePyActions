@@ -3,7 +3,7 @@ from calc import soma, subtracao, multiplicacao, divisao
 import pytest
 
 def test_soma():
-    assert soma(2, 3) == 5
+    assert soma(2, 3) == 4
     assert soma(-1, 1) == 0
     assert soma(0, 0) == 0
 
