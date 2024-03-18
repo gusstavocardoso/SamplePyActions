@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Setup Python') {
             steps {
-                bat 'choco install python3 -y'
+                bat 'winget install Python --silent'
             }
         }
         stage('Instalar Dependencias') {
