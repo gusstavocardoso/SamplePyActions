@@ -8,16 +8,16 @@ pipeline {
         }
         stage('Setup Env') {
             steps {
-                bat 'python -m venv venv'
+                sh 'python -m venv venv'
                
-                bat '. venv/bin/activate'
+                sh '. venv/bin/activate'
                 
-                bat 'pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Executar Testes') {
             steps {
-                bat 'pytest'
+                sh 'pytest'
             }
         }
     }
