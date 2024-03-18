@@ -6,8 +6,12 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Instalar Dependências') {
+        stage('Setup Env') {
             steps {
+                bat 'python -m venv venv'
+               
+                bat '. venv/bin/activate'
+                
                 bat 'pip install -r requirements.txt'
             }
         }
