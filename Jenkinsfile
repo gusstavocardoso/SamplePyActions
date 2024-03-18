@@ -6,18 +6,19 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Setup Env') {
+        stage('Setup Python') {
             steps {
-                sh 'python -m venv venv'
-               
-                sh '. venv/bin/activate'
-                
-                sh 'pip install -r requirements.txt'
+                bat 'choco install python3 -y'
+            }
+        }
+        stage('Instalar Dependencias') {
+            steps {
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Executar Testes') {
             steps {
-                sh 'pytest'
+                bat 'pytest'
             }
         }
     }
