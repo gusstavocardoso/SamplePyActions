@@ -8,13 +8,13 @@ pipeline {
         }
         stage('Instalar Dependências') {
             steps {
-                sh 'pip install --upgrade pip'
-                sh 'pip install -r requirements.txt'
+                bat 'pip install --upgrade pip'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Executar Testes') {
             steps {
-                sh 'pytest'
+                bat 'pytest'
             }
         }
     }
