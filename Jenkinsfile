@@ -8,17 +8,19 @@ pipeline {
         }
         stage('Setup Python') {
             steps {
-                bat 'choco install python3 -y'
+                sh 'choco install python3 -y'
+                sh 'python -m venv venv'
+                sh '. venv/bin/activate'
             }
         }
         stage('Instalar Dependencias') {
             steps {
-                bat 'pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Executar Testes') {
             steps {
-                bat 'pytest'
+                sh 'pytest'
             }
         }
     }
