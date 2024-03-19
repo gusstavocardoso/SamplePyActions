@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Setup Python') {
             steps {
-                sh 'choco install python3 -y'
-                sh 'python -m venv venv'
-                sh '. venv/bin/activate'
+                bat 'choco install python3 -y'
+                bat 'python -m venv venv'
+                bat 'venv\\Scripts\\activate'
             }
         }
         stage('Instalar Dependencias') {
