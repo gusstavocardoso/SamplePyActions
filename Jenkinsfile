@@ -8,7 +8,6 @@ pipeline {
         }
         stage('Setup Python') {
             steps {
-                bat 'choco install python3 -y'
                 bat 'python -m venv venv'
                 bat 'venv\\Scripts\\activate'
             }
