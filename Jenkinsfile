@@ -6,20 +6,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Setup Python') {
-            steps {
-                bat 'python -m venv venv'
-                bat 'venv\\Scripts\\activate'
-            }
-        }
         stage('Instalar Dependencias') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
         stage('Executar Testes') {
             steps {
-                sh 'pytest'
+                bat 'pytest'
             }
         }
     }
